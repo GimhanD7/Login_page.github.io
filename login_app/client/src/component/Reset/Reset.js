@@ -43,8 +43,8 @@ export default function Reset() {
 
             <center>
             <div className='textbox flex flex-col items-center gap-6 '>
-              <input {...formik.getFieldProps('password')}  type={'text'} placeholder='New Password' className='textbox01' ></input>
-              <input {...formik.getFieldProps('confirm_password')}  type={'text'} placeholder='Re-Enter Password' className='textbox01' ></input>
+              <input {...formik.getFieldProps('password')}  type={'password'} placeholder='New Password' className='textbox01' ></input>
+              <input {...formik.getFieldProps('confirm_password')}  type={'password'} placeholder='Re-Enter Password' className='textbox01' ></input>
 
               <button type='submit' className='btn'>Sign In</button>
             </div></center>
