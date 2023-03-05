@@ -95,7 +95,8 @@ const onUplode=async e=>{
               <span className='text-gray-500'> Come back later ? <Link className='text-red-500' to={'/'}> Logout</Link></span>
             </div>
           </form>
-        
+
+         
         </div>
       </div>
 
