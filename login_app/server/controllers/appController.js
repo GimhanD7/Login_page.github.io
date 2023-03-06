@@ -36,32 +36,33 @@ export async function register(req,res){
                 resolve();
             })
         });
+
         Promise.all([existUsername, existEmail])
-        .then(()=>{
-                if(password){
-                    bcrypt.hash(password,10)
-                    .then(hashPassword=>{
+                .then(()=>{
+                        if(password){
+                            bcrypt.hash(password,10)
+                            .then(hashedPassword=>{
 
-                        const user =new UserModel({
-                            username,
-                            password :hashedPassword,
-                            profile :profile ||'',
-                            email 
-                        });
-                        //return save result as a response
-                        user.save()
-                        .then(result=> res.status(201).send({msg:"User Register Successfully"}))
-                        .catch(error=> res.status(500).send({error}))
-                    }).catch(error=>{
-                        return res.status(500).send({
-                            error:"Enable to hashed password"
-                        })
-                    })
+                                const user =new UserModel({
+                                    username ,
+                                    password :hashedPassword,
+                                    profile :profile || "",
+                                    email 
+                                });
+                                //return save result as a response
+                                user.save()
+                                    .then(result=> res.status(201).send({msg:"User Register Successfully"}))
+                                     .catch(error=> res.status(500).send({error}))
+                            }).catch(error=>{
+                                return res.status(500).send({
+                                    error:"Enable to hashed password"
+                                })
+                            })
 
-                }
-        }).catch(error=>{
-            return res.status(500).send({error })
-        })
+                        }
+                }).catch(error=>{
+                    return res.status(500).send({error })
+                })
 
 
 

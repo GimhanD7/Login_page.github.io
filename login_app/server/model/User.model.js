@@ -8,7 +8,7 @@ export const UserSchema = new mongoose.Schema({
     password:{
         type:String,
         required:[true,"Please enter a password"],
-        unique:false
+        unique:false,
     },
     email:{
         type:String,
@@ -17,7 +17,7 @@ export const UserSchema = new mongoose.Schema({
     },
     firstName:{type:String},
     lastName:{type:String},
-    mobileNumber:{type:String},
+    mobile:{type:String},
     address:{type:String},
     profile:{type:String},
 });
