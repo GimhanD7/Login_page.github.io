@@ -78,7 +78,7 @@ const navItems=[
   },
   {
     text:"Management",
-    icon:<null/>
+    icon:null
   },
   {
     text:"Admins",
@@ -157,8 +157,28 @@ const navItems=[
                     onClick={()=>{
                       navigate(`/${lcText}`);
                       setActive(lcText);
+                    }}
+                    sx={{
+                      backgroundColor: active===lcText 
+                      ? theme.palette.secondary[300]
+                      :"transparent",
+                      color:
+                      active===lcText 
+                      ? theme.palette.primary[600]
+                      : theme.palette.secondary[100],
                     }}>
-
+                      <ListItemIcon
+                      sx={{ml:"2rem",
+                      color:active===lcText
+                      ? theme.palette.primary[600]
+                      :theme.palette.secondary[200]
+                    }}>
+                        {icon}
+                      </ListItemIcon>
+                    <ListItemText primary={text}/>
+                    {active===lcText && (
+                      ChevroRightOutlined
+                    )}
                     </ListItemButton>
                   </ListItem>
                 )
