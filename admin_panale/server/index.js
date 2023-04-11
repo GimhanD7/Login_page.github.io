@@ -10,6 +10,9 @@ import generalRoutes from "./routes/general.js";
 import salesRoutes from "./routes/sales.js";
 import managementRoutes from "./routes/management.js";
 
+//data impotr
+import User from "./models/User.js";
+import {dataUser} from "./data/index.js";
 
 //configuration
 dotenv.config();
@@ -36,4 +39,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
 }).then(()=>{
     app.listen(PORT,()=>console.log(`Server Port : ${PORT}`));
-}).catch((error)=> console.log(`${error} did not connect to server`));
+
+    //only data add one time
+    User.insertMany(dataUser);
+  }).catch((error)=> console.log(`${error} did not connect to server`));
